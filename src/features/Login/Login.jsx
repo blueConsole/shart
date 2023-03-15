@@ -6,6 +6,7 @@ import { Button, TextField, Typography, Box, Grid, Stack } from "@mui/material";
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { animation } from "../../utils/animation";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -15,6 +16,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -29,7 +31,9 @@ const Login = () => {
         const provider = new GoogleAuthProvider();
         try {
             await signInWithPopup(auth, provider);
+
             alert(auth.currentUser.displayName)
+            navigate("/")
         } catch (error) {
             setError(error.message);
         }

@@ -2,6 +2,7 @@ import React from "react";
 import "./ParallaxPage.css";
 import { Typography } from "@mui/material";
 import Navbar from "../../components/Navbar/navbar";
+import AuthGuard from "../../components/AuthGuard/authguard";
 
 const Home = () => {
     const landingStyle = {

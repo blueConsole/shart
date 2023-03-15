@@ -3,6 +3,9 @@ import { styled } from "@mui/material/styles";
 import { AppBar, Grid, Stack, Toolbar, Typography } from "@mui/material";
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.css"
+import LogoutButton from "../Logout/logout";
+import HomeIcon from '@mui/icons-material/Home';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const StyledAppBar = styled(AppBar)({
     opacity: 0.5,
@@ -20,7 +23,7 @@ const linkStyles = {
 const Navbar = () => {
     return (
         <StyledAppBar position="fixed">
-            <Toolbar sx={{ backgroundColor: "#121212" }}>
+            <Toolbar sx={{ backgroundColor: "#121212" }} >
                 <Grid container spacing={2} alignItems="center">
                     <Grid item container xs={4} justifyContent="flex-start">
                         <Link to={"/"} style={linkStyles}>
@@ -30,14 +33,14 @@ const Navbar = () => {
                         </Link>
                     </Grid>
                     <Grid item xs={8} container justifyContent="flex-end">
-                        <Stack direction="row" spacing={2} sx={{ color: "white" }}>
+                        <Stack direction="row" spacing={2} sx={{ color: "white" }} alignItems="center">
                             <NavLink
                                 exact
                                 to="/"
                                 className="nav-link"
                                 activeClassName="nav-link-active"
                             >
-                                Home
+                                <HomeIcon />
                             </NavLink>
 
                             <NavLink
@@ -45,8 +48,11 @@ const Navbar = () => {
                                 className="nav-link"
                                 activeClassName="nav-link-active"
                             >
-                                Profile
+                                <AccountBoxIcon />
                             </NavLink>
+
+                            <LogoutButton className="nav-link"
+                                activeClassName="nav-link-active" />
                         </Stack>
                     </Grid>
                 </Grid>
